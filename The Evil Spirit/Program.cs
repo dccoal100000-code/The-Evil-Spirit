@@ -11,5 +11,10 @@ namespace The_Evil_Spirit
         static void Main(string[] args)
         {
         }
+        static double suma(double num1, double num2)
+        {
+            double resultado = num1 + num2;
+            return resultado;  
+        }
     }
 }
