@@ -16,5 +16,14 @@ namespace The_Evil_Spirit
             double resultado = num1 + num2;
             return resultado;  
         }
+        static double resta(double num1, double num2)
+        {
+            resultado = num1 - num2;
+            if(resultado % 1 != 0)
+            {
+                console.Writeline("tu resultado tiene decimales);
+            }
+                                  return resultado;
+                                  }
     }
 }
