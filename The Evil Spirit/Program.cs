@@ -53,7 +53,9 @@ namespace The_Evil_Spirit
                 case seleccion.Multiplicacion:
                     multiplicacion(num1, num2);
                     break;
-               
+                case seleccion.Division:
+            division(num1, num2);
+                    break;
 
 
 
@@ -78,7 +80,12 @@ namespace The_Evil_Spirit
             double resultado = num1 * num2;
             return resultado;
         }
-      
+        static double division(double num1, double num2)
+        {
+            double resultado = num1 / num2;
+            return resultado;
+        }
+
     }
     enum seleccion
     {
