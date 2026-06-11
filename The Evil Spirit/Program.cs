@@ -16,9 +16,9 @@ namespace The_Evil_Spirit
             seleccion ss = seleccion.Suma;
 
             bool t = true;
-           
-           
-                do
+           double resultado = 0;
+
+            do
                 {
                     try
                     {
@@ -60,18 +60,18 @@ namespace The_Evil_Spirit
                 switch (ss)
                 {
                     case seleccion.Suma:
-                        suma(num1, num2);
+                        resultado = suma(num1, num2);
                         break;
                     case seleccion.Resta:
-                        resta(num1, num2);
+                        resultado = resta(num1, num2);
                         break;
                     case seleccion.Multiplicacion:
-                        multiplicacion(num1, num2);
+                        resultado = multiplicacion(num1, num2);
                         break;
                     case seleccion.Division:
-                        division(num1, num2);
+                      resultado = division(num1, num2);
                         break;
-
+                    
 
                 }
            }
@@ -109,6 +109,10 @@ namespace The_Evil_Spirit
                 resultado *= num1;
             }
             return resultado;
+        }
+        static void MostrarResultado(double resultado)
+        {
+            Console.WriteLine("tu resultado es " + resultado);
         }
     }
     enum seleccion
