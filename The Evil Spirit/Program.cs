@@ -13,54 +13,69 @@ namespace The_Evil_Spirit
         {
 
             double num1 = 1; double num2 = 1;
+            seleccion ss = seleccion.Suma;
 
             bool t = true;
-            do
-            {
-                try
+           
+           
+                do
                 {
-                    Console.WriteLine("por favor dame un numero");
-                    num1 = Convert.ToDouble(Console.ReadLine());
-                }
-                catch (DivideByZeroException)
+                    try
+                    {
+                        Console.WriteLine("por favor dame un numero");
+                        num1 = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch (DivideByZeroException)
+                    {
+                        Console.WriteLine("La division entre cero no se puede selecciona otro numero");
+                        t = false;
+                    }
+                    try
+                    {
+                        Console.WriteLine("por favor dame un numero");
+                        num2 = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch (DivideByZeroException)
+                    {
+                        Console.WriteLine("La division entre cero no se puede selecciona otro numero");
+                        t = false;
+                    }
+                } while (t == false);
+                seleccion selecion = new seleccion();
+                do
                 {
-                    Console.WriteLine("La division entre cero no se puede selecciona otro numero");
-                    t = false;
-                }
-                try
-                {
-                    Console.WriteLine("por favor dame un numero");
-                    num2 = Convert.ToDouble(Console.ReadLine());
-                }
-                catch (DivideByZeroException)
-                {
-                    Console.WriteLine("La division entre cero no se puede selecciona otro numero");
-                    t = false;
-                }
-            } while (t == false);
-            seleccion selecion = new seleccion();
-            Console.WriteLine("bienvenido al menu de seleccion de peraciones ");
-            Console.WriteLine($"1. {seleccion.Suma}, 2.{seleccion.Resta}, 3.{seleccion.Multiplicacion}, 4.{seleccion.Division}");
-            seleccion ss = (seleccion)Enum.Parse(typeof(seleccion), Console.ReadLine());
-            switch (ss)
-            {
-                case seleccion.Suma:
-                    suma(num1, num2);
-                    break;
-                case seleccion.Resta:
-                    resta(num1, num2);
-                    break;
-                case seleccion.Multiplicacion:
-                    multiplicacion(num1, num2);
-                    break;
-                case seleccion.Division:
-            division(num1, num2);
-                    break;
+                    try
+                    {
 
 
+                        Console.WriteLine("bienvenido al menu de seleccion de peraciones ");
+                        Console.WriteLine($"1. {seleccion.Suma}, 2.{seleccion.Resta}, 3.{seleccion.Multiplicacion}, 4.{seleccion.Division}");
+                        ss = (seleccion)Enum.Parse(typeof(seleccion), Console.ReadLine());
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("selecciona una opcion valida");
+                    }
+                } while (ss != seleccion.Suma && ss != seleccion.Resta && ss != seleccion.Multiplicacion && ss != seleccion.Division);
+                switch (ss)
+                {
+                    case seleccion.Suma:
+                        suma(num1, num2);
+                        break;
+                    case seleccion.Resta:
+                        resta(num1, num2);
+                        break;
+                    case seleccion.Multiplicacion:
+                        multiplicacion(num1, num2);
+                        break;
+                    case seleccion.Division:
+                        division(num1, num2);
+                        break;
 
-            }
-        }
+
+                }
+           }
+        
         static double suma(double num1, double num2)
         {
             double resultado = num1 + num2;
