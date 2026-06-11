@@ -40,7 +40,7 @@ namespace The_Evil_Spirit
             } while (t == false);
             seleccion selecion = new seleccion();
             Console.WriteLine("bienvenido al menu de seleccion de peraciones ");
-            Console.WriteLine($"1. {seleccion.Suma}, 2.{seleccion.Resta}, 3.{seleccion.Multiplicacion}, 4.{seleccion.Division}");
+            Console.WriteLine($"1. {seleccion.Suma}, 2.{seleccion.Resta}, 3.{seleccion.Multiplicacion}, 4.{seleccion.Division}, 5.{seleccion.Potencia}");
             seleccion ss = (seleccion)Enum.Parse(typeof(seleccion), Console.ReadLine());
             switch (ss)
             {
@@ -54,7 +54,10 @@ namespace The_Evil_Spirit
                     multiplicacion(num1, num2);
                     break;
                 case seleccion.Division:
-            division(num1, num2);
+                   division(num1, num2);
+                    break;
+                    case seleccion.Potencia:
+                    potencia(num1, num2);
                     break;
 
 
@@ -101,6 +104,7 @@ namespace The_Evil_Spirit
         Suma = 1,
         Resta,
         Multiplicacion,
-        Division
+        Division,
+        Potencia
     }
 }
