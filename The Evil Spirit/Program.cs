@@ -85,7 +85,16 @@ namespace The_Evil_Spirit
             double resultado = num1 / num2;
             return resultado;
         }
-
+          
+        static double potencia(double num1, double num2)
+        {
+            double resultado = 1;
+            for (int i = 0; i < num1; i++)
+            {
+                resultado *= num1;
+            }
+            return resultado;
+        }
     }
     enum seleccion
     {
