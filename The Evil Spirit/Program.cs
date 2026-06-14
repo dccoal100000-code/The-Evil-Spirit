@@ -49,7 +49,7 @@ namespace The_Evil_Spirit
 
 
                         Console.WriteLine("bienvenido al menu de seleccion de peraciones ");
-                        Console.WriteLine($"1. {seleccion.Suma}, 2.{seleccion.Resta}, 3.{seleccion.Multiplicacion}, 4.{seleccion.Division}, 5.{seleccion.Potenciacion}");
+                        Console.WriteLine($"1. {seleccion.Suma}, 2.{seleccion.Resta}, 3.{seleccion.Multiplicacion}, 4.{seleccion.Division}, 5.{seleccion.Potenciacion}, 6.{seleccion.NumeroAzar}");
                         ss = (seleccion)Enum.Parse(typeof(seleccion), Console.ReadLine());
                     }
                     catch (Exception)
@@ -114,6 +114,40 @@ namespace The_Evil_Spirit
         {
             Console.WriteLine("tu resultado es " + resultado);
         }
+        static void juegoAzar()
+        {
+                       Random random = new Random();
+            int numeroSecreto = random.Next(1, 101);
+            int intentos = 0;
+            bool adivinado = false;
+            Console.WriteLine("Bienvenido al juego de adivinar el número secreto entre 1 y 100.");
+            while (!adivinado)
+            {
+                Console.Write("Ingresa tu intento: ");
+                int intento;
+                if (int.TryParse(Console.ReadLine(), out intento))
+                {
+                    intentos++;
+                    if (intento == numeroSecreto)
+                    {
+                        adivinado = true;
+                        Console.WriteLine($"¡Felicidades! Has adivinado el número secreto {numeroSecreto} en {intentos} intentos.");
+                    }
+                    else if (intento < numeroSecreto)
+                    {
+                        Console.WriteLine("El número secreto es mayor. Intenta de nuevo.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("El número secreto es menor. Intenta de nuevo.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Por favor, ingresa un número válido.");
+                }
+            }
+        }
     }
     enum seleccion
     {
@@ -121,6 +155,8 @@ namespace The_Evil_Spirit
         Resta,
         Multiplicacion,
         Division,
-        Potenciacion
+        Potenciacion,
+        NumeroAzar
+
     }
 }
