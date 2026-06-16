@@ -42,43 +42,60 @@ namespace The_Evil_Spirit
                         t = false;
                     }
                 } while (t == false);
-                seleccion selecion = new seleccion();
-                do
-                {
-                    try
-                    {
-
-
-                        Console.WriteLine("bienvenido al menu de seleccion de peraciones ");
-                        Console.WriteLine($"1. {seleccion.Suma}, 2.{seleccion.Resta}, 3.{seleccion.Multiplicacion}, 4.{seleccion.Division}, 5.{seleccion.Potenciacion}, 6.{seleccion.NumeroAzar}");
-                        ss = (seleccion)Enum.Parse(typeof(seleccion), Console.ReadLine());
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("selecciona una opcion valida");
-                    }
-                } while (ss != seleccion.Suma && ss != seleccion.Resta && ss != seleccion.Multiplicacion && ss != seleccion.Division);
-                switch (ss)
-                {
-                    case seleccion.Suma:
-                        resultado = suma(num1, num2);
-                        break;
-                    case seleccion.Resta:
-                        resultado = resta(num1, num2);
-                        break;
-                    case seleccion.Multiplicacion:
-                        resultado = multiplicacion(num1, num2);
-                        break;
-                    case seleccion.Division:
-                      resultado = division(num1, num2);
-                        break;
+             
                     
 
                 }
-           }
+           
         
-
-        static double suma(double num1, double num2)
+        static void menu (double num1, double num2)
+            {
+            bool t = true;
+            double resultado = 0;
+            seleccion selecccion = seleccion.Suma;
+            do
+            {
+                try
+                {
+                    Console.WriteLine("por favor selecciona la operacion que deseas realizar");
+                     selecccion = (seleccion)Enum.Parse(typeof(seleccion), Console.ReadLine());
+                
+                    Console.WriteLine("bienvenido al menu de seleccion de peraciones ");
+                    Console.WriteLine("vamos a mostrarte las operaciones que puedes realizar con los numeros que ingresaste");
+                    Console.WriteLine($"1. {seleccion.Suma}, 2.{seleccion.Resta}, 3.{seleccion.Multiplicacion}, 4.{seleccion.Division}, 5.{seleccion.Potenciacion}, 6.{seleccion.NumeroAzar}");
+                    
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("selecciona una opcion valida");
+                    t = false;
+                    
+                }
+            } while (t);
+            switch (selecccion)
+            {
+                case seleccion.Suma:
+                    resultado = suma(num1, num2);
+                    break;
+                case seleccion.Resta:
+                    resultado = resta(num1, num2);
+                    break;
+                case seleccion.Multiplicacion:
+                    resultado = multiplicacion(num1, num2);
+                    break;
+                case seleccion.Division:
+                    resultado = division(num1, num2);
+                    break;
+                case seleccion.Potenciacion:
+                    resultado = potencia(num1, num2);
+                resultado = potencia(num1, num2);
+                break;
+            case seleccion.NumeroAzar:
+                juegoAzar();
+                break;
+            }
+            }
+            static double suma(double num1, double num2)
         {
             double resultado = num1 + num2;
             return resultado;
